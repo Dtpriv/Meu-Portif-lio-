@@ -18,19 +18,20 @@ body {
     margin: 0 auto;
 }
 
-/* Cabeçalho ajustado */
+/* Cabeçalho com animação */
 header {
     text-align: center;
-    padding: 40px 0; /* Reduzido para melhorar no mobile */
+    padding: 40px 0;
     background: linear-gradient(135deg, #2c3e50, #3498db);
     border-radius: 10px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Ajuste nos títulos */
+/* Títulos ajustados */
 header h1 {
-    font-size: 60px; /* Menor que os 80px anteriores */
+    font-size: 60px;
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -43,14 +44,19 @@ header p {
     letter-spacing: 2px;
 }
 
-.about h2, .projects h2, .skills h2 {
-    font-size: 2.5em; /* Reduzido para melhor adaptação */
-    margin-bottom: 30px;
-    font-weight: 500;
-    text-align: center;
+/* Animação fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Projetos responsivos */
+/* Projetos com hover animado */
 .projects .project-list {
     display: flex;
     justify-content: space-between;
@@ -69,23 +75,45 @@ header p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project h3 {
-    font-size: 1.5em; /* Reduzido */
-    margin-bottom: 10px;
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões animados */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-button {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-button:hover {
+    background: #1d6fa5;
+    transform: scale(1.05);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     header {
-        padding: 30px 0; /* Reduzido para economizar espaço */
+        padding: 30px 0;
     }
 
     header h1 {
         font-size: 2.2em;
     }
 
-    .about h2, .projects h2, .skills h2 {
-        font-size: 2em;
+    .projects .project-list {
+        justify-content: center;
     }
 
     .project {
@@ -97,11 +125,6 @@ header p {
         flex-direction: column;
         align-items: center;
     }
-
-    .social-icon, .contact-button {
-        font-size: 1em;
-        padding: 8px 16px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -109,20 +132,8 @@ header p {
         font-size: 1.8em;
     }
 
-    header p {
-        font-size: 1em;
-    }
-
-    .about h2, .projects h2, .skills h2 {
-        font-size: 1.8em;
-    }
-
     .project {
         width: 100%;
         padding: 15px;
-    }
-
-    .projects .project-list {
-        flex-direction: column;
     }
 }
