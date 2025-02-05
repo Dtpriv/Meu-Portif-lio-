@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adriano Corrêa - Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Adriano Corrêa</h1>
+            <p>DESENVOLVEDOR <span id="dynamic-text"></span></p> <!-- Aqui entra o texto dinâmico -->
+        </div>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>Sobre mim</h2>
+            <p>Olá, me chamo Adriano Corrêa.
+Sou Desenvolvedor Web | Performance e Inovação.
+
+Desenvolvo soluções web modernas, focadas em performance, segurança e usabilidade. Com expertise em front-end, entrego projetos eficientes e escaláveis, sempre buscando inovação e qualidade. Atualmente, curso Análise e Desenvolvimento de Sistemas, aprimorando ainda mais minhas habilidades técnicas.  </p>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2>Meus Projetos</h2>
+            <div class="project-list">
+                <div class="project">
+                    <h3>Projeto 1</h3>
+                    <p>Projeto focado em animações dinâmicas e transições suaves.</p>
+                </div>
+                <div class="project">
+                    <h3>Projeto 2</h3>
+                    <p>Desenvolvimento de um site responsivo com design minimalista e alto desempenho.</p>
+                </div>
+                <div class="project">
+                    <h3>Projeto 3</h3>
+                    <p>Aplicação web com React, otimizada para dispositivos móveis e acessibilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                    <p>HTML5</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                    <p>CSS3</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    <p>React</p>
+                </div>
+                <div class="skill">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    <p>Git</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+          <h2>Contato</h2>
+          <p> </p>
+          <div class="contact-buttons">
+            <a href="mailto:tadriano375@gmail.com" class="contact-button">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://wa.me/5593984278419" target="_blank" class="contact-button">
+              <i class="fas fa-phone-alt"></i> WhatsApp
+            </a>
+          </div>
+          <h2>Redes Sociais</h2>
+          <div class="social-links">
+              <a href="https://www.linkedin.com/in/adriano-corr%C3%AAa-009721300" target="_blank" class="social-icon">
+                  <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://github.com/Dtpriv" target="_blank" class="social-icon">
+                  <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://www.instagram.com/dtpriv___" target="_blank" class="social-icon">
+                  <i class="fab fa-instagram"></i> Instagram
+              </a>
+          </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Adriano Corrêa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+      // Função para verificar se a seção está visível
+      const sections = document.querySelectorAll('section');
+
+      function checkVisibility() {
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            section.classList.add('visible');
+          } else {
+            section.classList.remove('visible');
+          }
+        });
+      }
+
+      // Verificar a visibilidade das seções ao rolar
+      window.addEventListener('scroll', checkVisibility);
+
+      // Executar a verificação ao carregar a página
+      document.addEventListener('DOMContentLoaded', checkVisibility);
+
+      // Efeito de digitação e apagamento
+      document.addEventListener("DOMContentLoaded", function () {
+          const words = ["front-end", "Web", "Freelancer", "Criativo"];
+          let wordIndex = 0;
+          let letterIndex = 0;
+          let isDeleting = false;
+          const dynamicText = document.getElementById("dynamic-text");
+
+          function typeEffect() {
+              const currentWord = words[wordIndex];
+
+              if (isDeleting) {
+                  letterIndex--; // Apaga as letras
+              } else {
+                  letterIndex++; // Digita as letras
+              }
+
+              dynamicText.textContent = currentWord.substring(0, letterIndex);
+
+              if (!isDeleting && letterIndex === currentWord.length) {
+                  isDeleting = true; // Começa a apagar
+                  setTimeout(typeEffect, 1000); // Pausa antes de apagar
+                  return;
+              }
+
+              if (isDeleting && letterIndex === 0) {
+                  isDeleting = false; // Depois de apagar, começa a digitar novamente
+                  wordIndex = (wordIndex + 1) % words.length; // Troca para a próxima palavra
+              }
+
+              setTimeout(typeEffect, isDeleting ? 50 : 100); // Velocidade da digitação e apagamento
+          }
+
+          setTimeout(typeEffect, 500); // Delay inicial para começar o efeito
+      });
+    </script>
+</body>
+</html>
