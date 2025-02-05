@@ -18,45 +18,43 @@ body {
     margin: 0 auto;
 }
 
-/* Cabeçalho com animação */
+/* ====== Estilo do Cabeçalho ====== */
 header {
     text-align: center;
-    padding: 40px 0;
+    padding: 40px 0; /* Reduzi o padding para diminuir a altura */
     background: linear-gradient(135deg, #2c3e50, #3498db);
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Títulos ajustados */
 header h1 {
-    font-size: 60px;
+    font-size: 50px; /* Reduzido para melhor adaptação ao mobile */
     margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     font-weight: 600;
 }
 
 header p {
-    font-size: 1.2em;
-    font-weight: 300;
-    letter-spacing: 2px;
+    font-size: 1em; /* Ajustado para ficar mais proporcional */
 }
 
-/* Animação fade-in */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ====== Seções e Títulos ====== */
+section {
+    padding: 50px 0;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Projetos com hover animado */
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ====== Projetos ====== */
 .projects .project-list {
     display: flex;
     justify-content: space-between;
@@ -75,50 +73,47 @@ header p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+.project h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
-/* Botões animados */
+/* ====== Botões de Contato e Ícones Sociais ====== */
 .contact-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
+    flex-wrap: wrap;
 }
 
-.contact-button {
-    background: #3498db;
-    color: white;
+.contact-button, .social-icon {
+    font-size: 1.2em;
     padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.contact-button:hover {
-    background: #1d6fa5;
-    transform: scale(1.05);
+/* ====== Rodapé ====== */
+footer {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(44, 62, 80, 0.6));
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Responsividade */
+/* ====== Responsividade ====== */
 @media (max-width: 768px) {
     header {
         padding: 30px 0;
     }
 
     header h1 {
-        font-size: 2.2em;
-    }
-
-    .projects .project-list {
-        justify-content: center;
+        font-size: 40px;
     }
 
     .project {
         width: 48%;
-        padding: 20px;
     }
 
     .contact-buttons {
@@ -128,32 +123,23 @@ header p {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 20px 0;
+    }
+
     header h1 {
-        font-size: 1.8em;
+        font-size: 30px;
+    }
+
+    header p {
+        font-size: 0.9em;
     }
 
     .project {
         width: 100%;
-        padding: 15px;
     }
-}
-/* Transição ao mudar de página */
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
 
-.fade.active {
-    opacity: 1;
-}
-
-/* Adicionando efeito ao body */
-body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Quando a página estiver carregada */
-body.loaded {
-    opacity: 1;
+    .projects .project-list {
+        flex-direction: column;
+    }
 }
