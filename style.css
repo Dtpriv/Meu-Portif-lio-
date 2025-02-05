@@ -1,3 +1,4 @@
+/* Reset e Configurações Globais */
 * {
     margin: 0;
     padding: 0;
@@ -18,6 +19,7 @@ body {
     margin: 0 auto;
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 60px 0;
@@ -25,10 +27,6 @@ header {
     border-radius: 10px;
     margin-bottom: 50px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
-header h1, .about h2, .projects h2, .contact h2, .skills h2, .social-links, .contact-buttons {
-    text-align: center;
 }
 
 header h1 {
@@ -39,15 +37,18 @@ header h1 {
     font-weight: 600;
 }
 
-header p, .project p, .contact-button, .social-icon {
-    font-size: 1.2em;
+header p {
+    font-size: 2.5em;
     font-weight: 300;
     letter-spacing: 2px;
 }
 
+/* Seções */
 section {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
     padding: 60px 0;
-    background: transparent;
     border-radius: 10px;
     margin-bottom: 50px;
     opacity: 0;
@@ -60,6 +61,7 @@ section.visible {
     transform: translateY(0);
 }
 
+/* Projetos */
 .projects .project-list {
     display: flex;
     justify-content: space-between;
@@ -83,18 +85,18 @@ section.visible {
     margin-bottom: 15px;
 }
 
-.project:hover, .skill:hover, .contact-button:hover, .social-icon:hover {
+.project:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 4px 15px rgba(0, 0, 0, 0.6);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Botões de Contato */
 .contact-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin: 20px 0 40px;
+    flex-wrap: wrap;
 }
 
 .contact-button {
@@ -118,6 +120,12 @@ section.visible {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
+/* Ícones Sociais */
+.social-links {
+    text-align: center;
+    margin-top: 40px;
+}
+
 .social-icon {
     font-size: 1.4em;
     text-decoration: none;
@@ -135,6 +143,7 @@ section.visible {
     margin-right: 8px;
 }
 
+/* Rodapé */
 footer {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(44, 62, 80, 0.6));
     padding: 20px;
@@ -145,40 +154,7 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
-    .project {
-        width: 48%;
-    }
-
-    .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .social-icon, .contact-button {
-        font-size: 1.2em;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    .project {
-        width: 100%;
-    }
-
-    .projects .project-list {
-        flex-direction: column;
-    }
-}
-
+/* Habilidades */
 .skills .skills-list {
     display: flex;
     justify-content: center;
@@ -213,7 +189,7 @@ footer {
     font-weight: 600;
 }
 
-/* Ajustando o tamanho e o espaçamento dos títulos */
+/* Títulos */
 .about h2, .projects h2, .skills h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 120px;  
@@ -222,27 +198,7 @@ footer {
     text-align: center;
 }
 
-.projects:hover .project:not(:hover),
-.skills:hover .skill:not(:hover),
-.contact-buttons:hover .contact-button:not(:hover),
-.social-links:hover .social-icon:not(:hover) {
-    filter: brightness(0.6);
-    transition: filter 0.3s ease;
-}
-
-.contact-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
-.social-links {
-    text-align: center;
-    margin-top: 40px;
-}
-
+/* Animação de Entrada */
 section {
     opacity: 0;
     transform: translateX(-100px);
@@ -256,91 +212,59 @@ section.visible {
     filter: blur(0);
 }
 
-
-/* Estilos globais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Efeito de Destaque */
+.projects:hover .project:not(:hover),
+.skills:hover .skill:not(:hover),
+.contact-buttons:hover .contact-button:not(:hover),
+.social-links:hover .social-icon:not(:hover) {
+    filter: brightness(0.6);
+    transition: filter 0.3s ease;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(180deg, #1c1c1c, #212121);
-    color: #ecf0f1;
-    line-height: 1.6;
-    overflow-x: hidden;
+/* Responsividade */
+@media (max-width: 768px) {
+    .project {
+        width: 48%;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icon, .contact-button {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-header p {
-    font-size: 2.5em; /* Aumentado para ficar mais visível, sem ultrapassar o título */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .project {
+        width: 100%;
+    }
+
+    .projects .project-list {
+        flex-direction: column;
+    }
 }
 
-
+/* Texto Dinâmico */
 #dynamic-text {
     font-weight: bold;
     border-right: 3px solid #ecf0f1;
     padding-right: 5px;
     animation: blinkCursor 0.8s infinite;
+    text-transform: uppercase;
 }
 
 @keyframes blinkCursor {
     50% { border-color: transparent; }
-}
-
-
-
-
-
-#dynamic-text {
-    text-transform: uppercase; /* Faz o texto aparecer em maiúsculas */
-}
-
-
-.about p {
-    font-size: 1.8em; /* Aumenta o tamanho do texto */
-    line-height: 1.8; /* Para melhorar a legibilidade */
-    font-weight: 300; /* Para manter o texto leve */
-}
-section { display: grid;
-place-items: center;
-align-items: center;
-min-height: 100vh;
-}
-
-
-
-
-
-@media (max-width: 768px) {
-    .about h2, .projects h2, .skills h2, .contact h2 {
-        font-size: 60px; /* Reduz o tamanho */
-    }
-}
-
-@media (max-width: 480px) {
-    .about h2, .projects h2, .skills h2, .contact h2 {
-        font-size: 40px; /* Ainda menor para celulares */
-    }
-}
-
-@media (max-width: 768px) {
-    .project {
-        width: 48%; /* Deixa dois projetos por linha */
-    }
-}
-
-@media (max-width: 480px) {
-    .project {
-        width: 100%; /* Cada projeto ocupa a tela inteira */
-    }
-
-    .projects .project-list {
-        flex-direction: column; /* Deixa os projetos empilhados */
-    }
 }
