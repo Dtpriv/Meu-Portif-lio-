@@ -137,3 +137,23 @@ header p {
         padding: 15px;
     }
 }
+/* Transição ao mudar de página */
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade.active {
+    opacity: 1;
+}
+
+/* Adicionando efeito ao body */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Quando a página estiver carregada */
+body.loaded {
+    opacity: 1;
+}
