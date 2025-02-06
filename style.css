@@ -100,7 +100,7 @@ section.visible {
 .contact-button {
     font-size: 1.2em; /* Tamanho dos botões de contato */
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 15px 30px; /* Aumentei o padding para maior tamanho */
     background: linear-gradient(135deg, #3498db, #2c3e50);
     border-radius: 50px;
     color: #fff;
@@ -119,11 +119,11 @@ section.visible {
 }
 
 .social-icon {
-    font-size: 1.2em; /* Tamanho reduzido dos botões de redes sociais */
+    font-size: 1.2em; /* Ajustando o tamanho para ser igual ao dos botões de contato */
     text-decoration: none;
     margin: 0 15px;
     color: #fff;
-    padding: 10px 20px; /* Tamanho ajustado */
+    padding: 15px 30px; /* Tamanho ajustado para ficar igual ao botão de contato */
     background: linear-gradient(135deg, #3498db, #2c3e50);
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
