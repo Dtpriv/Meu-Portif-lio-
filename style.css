@@ -43,8 +43,9 @@ body {
 ===================================================================== */
 header {
   text-align: center;
-  padding: 1rem 0;
+  padding: 4rem 0;
   background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+  border-radius: 0rem;
   margin-bottom: 3rem;
   box-shadow: 0 5px 30px rgba(0,0,0,0.6);
 }
@@ -180,14 +181,6 @@ section h2 {
 /* ---------------------------------------------------------------------
    Seção "Contato" e Redes Sociais
 --------------------------------------------------------------------- */
-contact-buttons,
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  justify-content: center;
-}
-
 .contact-button,
 .social-icon {
   font-size: 1rem;
@@ -235,6 +228,7 @@ footer {
   text-align: center;
   font-size: 1rem;
   color: var(--text-color);
+  border-radius: 0rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
