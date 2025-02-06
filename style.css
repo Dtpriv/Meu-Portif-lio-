@@ -8,7 +8,7 @@
 }
 
 :root {
-  /* Variáveis de cores (opcional, para facilitar ajustes) */
+  /* Variáveis de cores para facilitar ajustes */
   --cor-bg-1: #1c1c1c;
   --cor-bg-2: #212121;
   --cor-text: #ecf0f1;
@@ -34,7 +34,7 @@ body {
    TIPOGRAFIA & ELEMENTOS ESPECÍFICOS
 ===================================================================== */
 header p {
-  font-size: 2.5em; /* Para ficar mais visível */
+  font-size: 2.5em;
 }
 
 #dynamic-text {
@@ -86,7 +86,7 @@ section {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  /* Animação de entrada - tempo reduzido para maior fluidez */
+  /* Animação de entrada - transições mais rápidas */
   opacity: 0;
   transform: translateX(-100px);
   filter: blur(15px);
@@ -113,10 +113,10 @@ section.visible {
 
 /* PROJETOS */
 .projects .project-list {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   gap: 30px;
-  flex-wrap: wrap;
+  /* Utiliza auto-fit para criar colunas que se adaptam ao espaço disponível */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .project {
@@ -124,7 +124,6 @@ section.visible {
   color: #fff;
   border-radius: 10px;
   padding: 30px;
-  width: 30%;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -137,10 +136,11 @@ section.visible {
 
 /* SKILLS */
 .skills .skills-list {
-  display: flex;
-  justify-content: center;
+  display: grid;
   gap: 20px;
-  flex-wrap: wrap;
+  justify-items: center;
+  /* Cria colunas flexíveis para os cards de skill */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   text-align: center;
 }
 
@@ -174,6 +174,7 @@ section.visible {
 .contact-buttons,
 .social-links {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
@@ -196,7 +197,7 @@ section.visible {
   gap: 10px;
 }
 
-/* Hover geral para destaque do item selecionado e escurecimento dos demais */
+/* Hover geral: destaca o item selecionado e escurece os demais */
 .projects:hover .project:not(:hover),
 .skills:hover .skill:not(:hover),
 .contact-buttons:hover .contact-button:not(:hover),
@@ -227,18 +228,40 @@ footer {
 }
 
 /* =====================================================================
-   MÍDIA QUERIES
+   MÍDIA QUERIES - RESPONSIVIDADE
 ===================================================================== */
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+  header h1 {
+    font-size: 60px;
+  }
+  header p {
+    font-size: 2em;
+  }
+  .about h2,
+  .projects h2,
+  .skills h2,
+  .contact h2 {
+    font-size: 80px;
+  }
+}
+
+/* Dispositivos móveis (tablets menores e smartphones) */
 @media (max-width: 768px) {
-  .project {
-    width: 48%;
+  header h1 {
+    font-size: 50px;
   }
-
-  .contact-buttons {
-    flex-direction: column;
-    align-items: center;
+  header p {
+    font-size: 1.8em;
   }
-
+  .about h2,
+  .projects h2,
+  .skills h2,
+  .contact h2 {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  /* Ajuste dos botões para ocupar mais espaço */
   .contact-button,
   .social-icon {
     font-size: 1.2em;
@@ -246,20 +269,23 @@ footer {
   }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
   header h1 {
-    font-size: 2.5em;
+    font-size: 40px;
   }
-
   header p {
-    font-size: 1em;
+    font-size: 1.5em;
   }
-
-  .project {
-    width: 100%;
+  .about h2,
+  .projects h2,
+  .skills h2,
+  .contact h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
   }
-
-  .projects .project-list {
-    flex-direction: column;
+  /* Ajuste de padding nas seções para economizar espaço */
+  section {
+    padding: 40px 20px;
   }
 }
