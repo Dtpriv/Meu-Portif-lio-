@@ -588,3 +588,41 @@ section {
         align-items: center; /* Centraliza os ícones */
     }
 }
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 14vw; /* Ajuste proporcional */
+    }
+
+    header p {
+        font-size: 5vw; /* Ajuste proporcional */
+    }
+
+    .project {
+        width: 90%; /* Ajuste para telas menores */
+    }
+
+    .contact-button {
+        font-size: 5vw; /* Proporcional */
+        padding: 1.5vh 5vw;
+    }
+
+    .social-icon {
+        font-size: 6vw; /* Tamanho menor para os botões de redes sociais */
+        padding: 2vw; /* Espaçamento maior para os ícones */
+        margin: 2vw 0; /* Espaço entre os ícones */
+        display: block; /* Faz com que os ícones fiquem um em cima do outro */
+        text-align: center; /* Alinha o conteúdo */
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 5vh;
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: column; /* Alinha os ícones em coluna */
+        gap: 5vh; /* Distância entre os ícones */
+        align-items: center; /* Centraliza os ícones */
+    }
+}
