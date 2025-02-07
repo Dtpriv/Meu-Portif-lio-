@@ -3,165 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adriano Corrêa - Portfólio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>OgroCode - Desenvolvimento Web de Alto Impacto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e Variáveis CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        :root {
+            --primary-color: #2E8B57;  /* Verde Escuro */
+            --secondary-color: #32CD32; /* Verde Claro */
+            --accent-color: #32CD32; /* Cor para detalhes */
+            --dark-color: #232528; /* Cor de fundo escura */
+            --light-color: #F3F4F6; /* Cor de fundo clara */
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Gradiente verde */
+        }
+
+        /* Estilos Gerais */
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* Degradê verde */
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects */
+        .projects {
+            padding: 5rem 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contato */
+        .contact {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+    </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Adriano Corrêa</h1>
-            <p>DESENVOLVEDOR <span id="dynamic-text"></span></p> <!-- Aqui entra o texto dinâmico -->
-        </div>
+        <nav class="container">
+            <a href="#" class="logo">OgroCode</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="about">
-        <div class="container">
-            <h2>Sobre mim</h2>
-            <p>Olá, me chamo Adriano Corrêa.
-Sou Desenvolvedor Web | Performance e Inovação.
+    <!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="container animate-fade-in">
+    <h1>Soluções Digitais que Impulsionam seu Negócio</h1>
+    <p>Transformando ideias em realidade digital</p>
+    <a href="https://wa.me/55SEUNUMEROWHATSAPP" class="btn btn-primary" target="_blank" style="text-decoration: none;">Agende uma Consultoria</a>
+  </div>
+</section>
 
-Desenvolvo soluções web modernas, focadas em performance, segurança e usabilidade. Com expertise em front-end, entrego projetos eficientes e escaláveis, sempre buscando inovação e qualidade. Atualmente, curso Análise e Desenvolvimento de Sistemas, aprimorando ainda mais minhas habilidades técnicas.  </p>
-        </div>
-    </section>
-
-    <section class="projects">
+    <section class="features" id="services">
         <div class="container">
-            <h2>Meus Projetos</h2>
-            <div class="project-list">
-                <div class="project">
-                    <h3>Projeto 1</h3>
-                    <p>Projeto focado em animações dinâmicas e transições suaves.</p>
+            <h2>Nossos Serviços</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-code feature-icon"></i>
+                    <h3>Desenvolvimento Customizado</h3>
+                    <p>Sistemas web sob medida para suas necessidades específicas</p>
                 </div>
-                <div class="project">
-                    <h3>Projeto 2</h3>
-                    <p>Desenvolvimento de um site responsivo com design minimalista e alto desempenho.</p>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt feature-icon"></i>
+                    <h3>Mobile-First</h3>
+                    <p>Aplicativos e sites otimizados para dispositivos móveis</p>
                 </div>
-                <div class="project">
-                    <h3>Projeto 3</h3>
-                    <p>Aplicação web com React, otimizada para dispositivos móveis e acessibilidade.</p>
+                <div class="feature-card">
+                    <i class="fas fa-rocket feature-icon"></i>
+                    <h3>Otimização de Performance</h3>
+                    <p>Velocidade e eficiência como prioridade</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tools feature-icon"></i>
+                    <h3>Serviços Técnicos</h3>
+                    <p>Manutenção, suporte e aprimoramento de sistemas digitais</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
-                    <p>HTML5</p>
-                </div>
-                <div class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-                    <p>CSS3</p>
-                </div>
-                <div class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                    <p>React</p>
-                </div>
-                <div class="skill">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-                    <p>Git</p>
-                </div>
-            </div>
+    <section class="projects" id="projects">
+  <div class="container">
+    <h2>Projetos Recentes</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://source.unsplash.com/random/800x600?tech,1" alt="Projeto 1">
+        <div class="project-overlay">
+          <h3>Sistema de Gestão Empresarial</h3>
+          <p>Tecnologias: React, Node.js, MongoDB</p>
         </div>
-    </section>
+      </div>
+      <div class="project-card">
+        <img src="https://source.unsplash.com/random/800x600?tech,2" alt="Projeto 2">
+        <div class="project-overlay">
+          <h3>Landing Page para Startup</h3>
+          <p>Tecnologias: HTML, CSS, JavaScript</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://source.unsplash.com/random/800x600?tech,3" alt="Projeto 3">
+        <div class="project-overlay">
+          <h3>Plataforma de Cursos Online</h3>
+          <p>Tecnologias: Next.js, Firebase, Tailwind</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://source.unsplash.com/random/800x600?tech,4" alt="Projeto 4">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container">
-          <h2>Contato</h2>
-          <p> </p>
-          <div class="contact-buttons">
-            <a href="mailto:tadriano375@gmail.com" class="contact-button">
-              <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="https://wa.me/5593984278419" target="_blank" class="contact-button">
-              <i class="fas fa-phone-alt"></i> WhatsApp
-            </a>
-          </div>
-          <h2>Redes Sociais</h2>
-          <div class="social-links">
-              <a href="https://www.linkedin.com/in/adriano-corr%C3%AAa-009721300" target="_blank" class="social-icon">
-                  <i class="fab fa-linkedin"></i> LinkedIn
-              </a>
-              <a href="https://github.com/Dtpriv" target="_blank" class="social-icon">
-                  <i class="fab fa-github"></i> GitHub
-              </a>
-              <a href="https://www.instagram.com/dtpriv___" target="_blank" class="social-icon">
-                  <i class="fab fa-instagram"></i> Instagram
-              </a>
-          </div>
+            <h2>Vamos Conversar</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Seu Nome" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Seu Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
+                </div>
+                <button class="btn btn-primary">Enviar Mensagem</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Adriano Corrêa. Todos os direitos reservados.</p>
+            <div class="social-links">
+  <a href="https://www.linkedin.com/in/seu-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <a href="https://github.com/seu-github" target="_blank"><i class="fab fa-github"></i></a>
+  <a href="https://www.instagram.com/seu-instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+            <p>&copy; 2025 Adriano Corrêa | OgroCode. Todos os direitos reservados.</p>
         </div>
     </footer>
-    
+
     <script>
-      // Função para verificar se a seção está visível
-      const sections = document.querySelectorAll('section');
-
-      function checkVisibility() {
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-            section.classList.add('visible');
-          } else {
-            section.classList.remove('visible');
-          }
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
-      }
 
-      // Verificar a visibilidade das seções ao rolar
-      window.addEventListener('scroll', checkVisibility);
+        // Reveal Animation
+        window.addEventListener('scroll', revealElements);
 
-      // Executar a verificação ao carregar a página
-      document.addEventListener('DOMContentLoaded', checkVisibility);
+        function revealElements() {
+            const elements = document.querySelectorAll('.animate-fade-in');
 
-      // Efeito de digitação e apagamento
-      document.addEventListener("DOMContentLoaded", function () {
-          const words = ["front-end", "Web", "Freelancer", "Criativo"];
-          let wordIndex = 0;
-          let letterIndex = 0;
-          let isDeleting = false;
-          const dynamicText = document.getElementById("dynamic-text");
+            elements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
 
-          function typeEffect() {
-              const currentWord = words[wordIndex];
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
 
-              if (isDeleting) {
-                  letterIndex--; // Apaga as letras
-              } else {
-                  letterIndex++; // Digita as letras
-              }
-
-              dynamicText.textContent = currentWord.substring(0, letterIndex);
-
-              if (!isDeleting && letterIndex === currentWord.length) {
-                  isDeleting = true; // Começa a apagar
-                  setTimeout(typeEffect, 1000); // Pausa antes de apagar
-                  return;
-              }
-
-              if (isDeleting && letterIndex === 0) {
-                  isDeleting = false; // Depois de apagar, começa a digitar novamente
-                  wordIndex = (wordIndex + 1) % words.length; // Troca para a próxima palavra
-              }
-
-              setTimeout(typeEffect, isDeleting ? 50 : 100); // Velocidade da digitação e apagamento
-          }
-
-          setTimeout(typeEffect, 500); // Delay inicial para começar o efeito
-      });
+        // Initialize reveal
+        revealElements();
     </script>
 </body>
 </html>
